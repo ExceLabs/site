@@ -1,3 +1,89 @@
+var allTiles = document.getElementsByClassName("grid__cell-img")
+for(let i = 0; i < allTiles.length; i++) {
+    allTiles[i].addEventListener("click", function() {
+        if (document.getElementById("content2-p").classList.contains("unblur")) {
+            document.getElementById("content2-p").classList.toggle("unblur");    
+            document.getElementById("content4-5").classList.toggle("unblur");
+            document.getElementById("features12-1c").classList.toggle("unblur");
+    
+            document.getElementById("content2-p").classList.toggle("blur");    
+            document.getElementById("content4-5").classList.toggle("blur");
+            document.getElementById("features12-1c").classList.toggle("blur");   
+
+            if (screen.width < 768){
+                allTiles[i].style.visibility = "hidden"
+                var currentTile = allTiles[i]
+            }
+        }
+        else if (document.getElementById("content2-p").classList.contains("blur")) {
+            document.getElementById("content2-p").classList.toggle("blur");    
+            document.getElementById("content4-5").classList.toggle("blur");
+            document.getElementById("features12-1c").classList.toggle("blur");
+    
+            document.getElementById("content2-p").classList.toggle("blur");    
+            document.getElementById("content4-5").classList.toggle("blur");
+            document.getElementById("features12-1c").classList.toggle("blur");
+        }
+        else {
+    
+            document.getElementById("content2-p").classList.toggle("blur");    
+            document.getElementById("content4-5").classList.toggle("blur");
+            document.getElementById("features12-1c").classList.toggle("blur");
+
+            if (screen.width < 768){
+                allTiles[i].style.visibility = "hidden"
+                var currentTile = allTiles[i]
+            }
+    
+        }
+    })
+  }     
+
+  var allBigTiles = document.getElementsByClassName("grid__cell-img-inner-Big")
+
+document.getElementById("backbtn").addEventListener("click", function() {
+    if (document.getElementById("content2-p").classList.contains("blur")) {
+        document.getElementById("content2-p").classList.toggle("blur");    
+        document.getElementById("content4-5").classList.toggle("blur");
+        document.getElementById("features12-1c").classList.toggle("blur");
+
+        document.getElementById("content2-p").classList.toggle("unblur");    
+        document.getElementById("content4-5").classList.toggle("unblur");
+        document.getElementById("features12-1c").classList.toggle("unblur");
+
+        if (screen.width < 768){
+            for (let i = 0; i < allTiles.length; i++) {
+                allBigTiles[i].style.visibility = "visible"
+                }
+        }
+    }
+    else if (document.getElementById("content2-p").classList.contains("unblur")) {
+        document.getElementById("content2-p").classList.toggle("unblur");    
+        document.getElementById("content4-5").classList.toggle("unblur");
+        document.getElementById("features12-1c").classList.toggle("unblur");
+
+        document.getElementById("content2-p").classList.toggle("unblur");    
+        document.getElementById("content4-5").classList.toggle("unblur");
+        document.getElementById("features12-1c").classList.toggle("unblur");
+    }
+    else {
+
+        document.getElementById("content2-p").classList.toggle("unblur");    
+        document.getElementById("content4-5").classList.toggle("unblur");
+        document.getElementById("features12-1c").classList.toggle("unblur");
+
+        if (screen.width < 768){
+            for (let i = 0; i < allTiles.length; i++) {
+                allBigTiles[i].style.visibility = "visible"
+                }
+        }
+
+    }
+});
+
+var AllTiles
+
+
 var t="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},e={},i={},n=t.parcelRequirecbdb;null==n&&((n=function(t){if(t in e)return e[t].exports;if(t in i){var n=i[t];delete i[t];var r={id:t,exports:{}};return e[t]=r,n.call(r.exports,r,r.exports),r.exports}var s=new Error("Cannot find module '"+t+"'");throw s.code="MODULE_NOT_FOUND",s}).register=function(t,e){i[t]=e},t.parcelRequirecbdb=n);var r={};n.register("4hJWI",(function(t,e){!function(e,i){"function"==typeof define&&define.amd?define(i):t.exports?t.exports=i():e.EvEmitter=i()}("undefined"!=typeof window?window:t.exports,(function(){function t(){}var e=t.prototype;return e.on=function(t,e){if(t&&e){var i=this._events=this._events||{},n=i[t]=i[t]||[];return-1==n.indexOf(e)&&n.push(e),this}},e.once=function(t,e){if(t&&e){this.on(t,e);var i=this._onceEvents=this._onceEvents||{};return(i[t]=i[t]||{})[e]=!0,this}},e.off=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=i.indexOf(e);return-1!=n&&i.splice(n,1),this}},e.emitEvent=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){i=i.slice(0),e=e||[];for(var n=this._onceEvents&&this._onceEvents[t],r=0;r<i.length;r++){var s=i[r];n&&n[s]&&(this.off(t,s),delete n[s]),s.apply(this,e)}return this}},e.allOff=function(){delete this._events,delete this._onceEvents},t}))})),
 /*!
  * imagesLoaded v4.1.4

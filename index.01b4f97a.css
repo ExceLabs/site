@@ -6,6 +6,7 @@
 :root {
   font-size: 15px;
 }
+
 body {
   --color-text: #000;
   --color-bg: #f7f5ee;
@@ -21,6 +22,8 @@ body {
   margin: 0;
   overflow: hidden;
   overflow-y: scroll;
+  background-color: #c1c1c1 !important;
+  caret-color: transparent !important;
 }
 .js .loading:after,
 .js .loading:before {
@@ -45,6 +48,17 @@ body {
   opacity: 0.4;
   top: 50%;
   width: 60px;
+}
+.blur{
+  filter: blur(6px);
+  -webkit-filter: blur(6px);
+  transition: ease-out -webkit-filter 1s;
+}
+
+.unblur{
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  transition: ease-out -webkit-filter 1s;
 }
 @keyframes loaderAnim {
   to {
@@ -132,16 +146,24 @@ a:focus-visible {
 .frame--fixed .frame__links {
   flex-direction: row;
 }
+
+.grid--large .grid__cell--padded{
+  height: 0px !important;
+}
+
 .grid {
   --grid-border-radius: 8px;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  /*grid-template-columns: repeat(1, 50%);*/
+  margin-left: 50px;
+  margin-right: 50px;
 }
-.grid--large {
+.grid--large {  
   --grid-padding: 0.5vw;
-  grid-auto-rows: 32vmin;
+  grid-auto-rows: 45vmin;
   padding: 0.5vw;
 }
+
 .grid--mini {
   --grid-padding: 1px;
   height: 190px;
@@ -286,6 +308,9 @@ a:focus-visible {
   }
   .grid {
     grid-template-columns: repeat(4, 25%);
+  }
+  .grid--large{
+    grid-auto-rows: 35vmin;
   }
   .grid__cell--padded {
     padding: var(--grid-padding);
